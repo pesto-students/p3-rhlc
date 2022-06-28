@@ -1,0 +1,37 @@
+/* entire page */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  width: 70vw;
+  margin: auto;
+  line-height: 2rem;
+}
+
+/* main section  */
+#top h1 {
+  text-align: center;
+  font-size: xx-large;
+}
+.main-wrap {
+  display: flex;
+}
+
+.main-wrap p {
+  color: grey;
+}
+.main-wrap section {
+  flex-grow: 1;
+  padding: 15px;
+  width: 50%;
+}
+
+/* form section */
+.form-wrap {
+  width: 30%;
+  padding: 15px;
+}
+.form-field {
+  display: block;
+}
