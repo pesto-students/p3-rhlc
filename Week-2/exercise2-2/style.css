@@ -1,0 +1,71 @@
+body {
+  width: 80%;
+  margin: auto;
+  padding: 25px;
+  height: 100vh;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+#wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+#wrap:hover > .square1,
+#wrap:hover > .square3 {
+  animation: rotateLeft 1s linear;
+}
+
+#wrap:hover > .square2,
+#wrap:hover > .square4 {
+  animation: rotateRight 1s linear;
+}
+
+.square1 {
+  background-color: red;
+}
+
+.square2 {
+  background-color: yellow;
+}
+
+.square3 {
+  background-color: blue;
+}
+
+.square4 {
+  background-color: green;
+}
+
+@keyframes rotateRight {
+  from {
+    transform: translate(0, 0) rotate(0);
+  }
+  to {
+    transform: translate(100px, 0) rotate(90deg);
+  }
+}
+
+@keyframes rotateLeft {
+  from {
+    transform: translate(0, 0) rotate(0);
+  }
+  to {
+    transform: translate(-100px, 0) rotate(-90deg);
+  }
+}
