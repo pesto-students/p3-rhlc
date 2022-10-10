@@ -1,18 +1,25 @@
-const memoizedAdd = () => {
-  let cache = {};
-  return (n) => {
-    if (n in cache) {
-      console.log("Fetching from cache");
-      return cache[n];
-    } else {
-      console.log("Calculating result");
-      let result = n + 10;
-      cache[n] = result;
-      return result;
-    }
-  };
-};
+function add() {
+  let sum = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  console.log("freshly calculated", sum);
+  return sum;
+}
 
-const newAdd = memoizedAdd();
-console.log(newAdd(9, 10, 11));
-console.log(newAdd(9, 10, 11));
+function memoize(func) {
+  const cache = {};
+  return function memoized(...args) {
+    const key = JSON.stringify(args);
+    console.log(cache);
+    if (key in cache) {
+      console.log(`from cache ${cache[key]}`);
+      return cache[key];
+    }
+    return (cache[key] = func(...args));
+  };
+}
+
+const memoizeAdd = memoize(add);
+memoizeAdd(100, 100);
+memoizeAdd(100, 100);
